@@ -32,8 +32,9 @@ function App() {
       <ThemeProvider theme={theme}>
           <CssBaseline/>
           <Routes>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<SignUp/>}/>
             <Route path="/" element={<Layout />}>
-              <Route path="/login" element={<Login/>}/>
               <Route path="/register" element={<SignUp/>}/>
               <Route path="/" element={<EntryManagement/>} />
               <Route path="/dashboard" element={<Dashboard/>} />
