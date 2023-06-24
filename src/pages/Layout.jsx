@@ -18,7 +18,7 @@ const Layout = () => {
   if(Date.now() >= userDetails.eat){
     dispatch({ type: 'SESSION_EXPIRED'});
     localStorage.clear();
-    return <Navigate to="/Login" replace />;
+    return <Navigate to="/login" replace />;
   }
   //If not logged in, clear the local storage and redirect to login page - checks with isLoggedIn profile reducer
   if (!isLoggedIn) {

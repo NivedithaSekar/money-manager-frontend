@@ -32,15 +32,15 @@ function App() {
       <ThemeProvider theme={theme}>
           <CssBaseline/>
           <Routes>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<SignUp/>}/>
             <Route path="/" element={<Layout />}>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/register" element={<SignUp/>}/>
               <Route path="/" element={<EntryManagement/>} />
               <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/entry/new" element={<NewEntry/>} />
               <Route path="/entry/edit/:entryId" element={<EditEntry/>} />
               <Route path="/profile" element={<Profile/>} />
-              <Route path="/profile-edit" element={<h1>Product Page Coming Soon</h1>} />
+              <Route path="/profile-edit" element={<h1>Editable profile page coming soon!</h1>} />
             </Route>
           </Routes>
     </ThemeProvider>
