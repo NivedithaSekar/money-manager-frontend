@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Routes, Route} from 'react-router-dom'
+import { ThemeProvider } from "@emotion/react";
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline } from "@mui/material";
+import { Provider } from 'react-redux';
+
+import store from './store/store.js'
+
+import Login from "./pages/Login"
+import SignUp from "./pages/Signup";
+import Layout from "./pages/Layout";
+import EntryManagement from "./pages/EntryManagement";
+import NewEntry from "./pages/entries/NewEntry";
+import EditEntry from "./pages/entries/EditEntry";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/profile/Profile";
+//import Notification  from './components/Notification'
+
 
 function App() {
+  const [theme, colorMode] = useMode();
+ 
+  //console.log(theme,colorMode);
+  // const [notificationBar, setNotificationBar] = useState(false)
+  // const handleNotification = () => {
+  //   setNotificationBar()
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+    <ColorModeContext.Provider value={colorMode} >
+      <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<SignUp/>}/>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<EntryManagement/>} />
+              <Route path="/dashboard" element={<Dashboard/>} />
+              <Route path="/entry/new" element={<NewEntry/>} />
+              <Route path="/entry/edit/:entryId" element={<EditEntry/>} />
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/profile-edit" element={<h1>Product Page Coming Soon</h1>} />
+            </Route>
+          </Routes>
+    </ThemeProvider>
+    </ColorModeContext.Provider>
+    </Provider>
   );
 }
 

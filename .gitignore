@@ -5,11 +5,18 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
 # production
 /build
+/.env
+
+#Test Pages
+src/pages/entries/DataGrid_MoneyEntries.jsx
+WorkoutCodes.txt
+src/components/charts/BarcharData.js
 
 # misc
 .DS_Store
