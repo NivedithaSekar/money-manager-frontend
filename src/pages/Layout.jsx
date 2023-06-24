@@ -23,7 +23,7 @@ const Layout = () => {
   //If not logged in, clear the local storage and redirect to login page - checks with isLoggedIn profile reducer
   if (!isLoggedIn) {
     localStorage.clear();
-    return <Navigate to="/Login" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return (
