@@ -194,7 +194,7 @@ const SignUp = () => {
                           setShowConfirmPassword((prev) => !prev);
                         }}
                       >
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                        {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   ),
